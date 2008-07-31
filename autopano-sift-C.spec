@@ -69,7 +69,7 @@ cd build
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DCMAKE_VERBOSE_MAKEFILE=ON \
 %if "%{_lib}" == "64"
-	-DLIB_PREFIX=64
+	-DLIB_SUFFIX=64
 %endif
 
 %{__make}
