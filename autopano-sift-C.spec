@@ -69,7 +69,7 @@ cd build
 	%{?debug:-DCMAKE_BUILD_TYPE=Debug} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DCMAKE_VERBOSE_MAKEFILE=ON \
-%if "%{_lib}" == "64"
+%if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64
 %endif
 
