@@ -5,10 +5,10 @@ Version:	2.5.1
 Release:	1
 License:	GPL v2, but SIFT algorithm may require license in some countries
 Group:		Applications/Graphics
-Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.gz
 # Source0-md5:	b9bade07e8c4f2ea383c22a082c260e0
 URL:		http://wiki.panotools.org/Autopano-sift-C
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.4
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpano13-devel
 BuildRequires:	libpng-devel
@@ -57,16 +57,15 @@ obrazu, co pomaga przy zdjęciach obiektywami szerokokątnymi lub
 %prep
 %setup -q 
 
-# don't override our optflags with cmake-predefined values
-sed -i 's/NOT CMAKE_BUILD_TYPE/GFY/' CMakeLists.txt
-
 %build
 install -d build
 cd build
 # CMAKE_AR is a hack, cmake is unable to find it otherwise :/
 %cmake .. \
 	-DCMAKE_AR=/usr/bin/ar \
-	%{?debug:-DCMAKE_BUILD_TYPE=Debug} \
+	-DCMAKE_BUILD_TYPE=%{?debug:Debug}%{!?debug:Release} \
+	-DCMAKE_C_FLAGS_RELEASE="-DNDEBUG" \
+	-DCMAKE_CXX_FLAGS_RELEASE="-DNDEBUG" \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DCMAKE_VERBOSE_MAKEFILE=ON \
 %if "%{_lib}" == "lib64"
