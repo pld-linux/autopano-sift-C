@@ -7,6 +7,7 @@ License:	GPL v2, but SIFT algorithm may require license in some countries
 Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.gz
 # Source0-md5:	b9bade07e8c4f2ea383c22a082c260e0
+Patch0:		link.patch
 URL:		http://wiki.panotools.org/Autopano-sift-C
 BuildRequires:	cmake >= 2.4
 BuildRequires:	libjpeg-devel
@@ -56,6 +57,7 @@ obrazu, co pomaga przy zdjęciach obiektywami szerokokątnymi lub
 
 %prep
 %setup -q 
+%patch0 -p1
 
 %build
 install -d build

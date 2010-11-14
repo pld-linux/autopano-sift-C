@@ -1,0 +1,11 @@
+--- autopano-sift-C-2.5.1/CMakeLists.txt.orig	2010-11-14 15:49:18.744042505 +0100
++++ autopano-sift-C-2.5.1/CMakeLists.txt	2010-11-14 15:51:13.454030665 +0100
+@@ -122,7 +122,7 @@ SET(LIBSIFT_SOURCES LoweDetector.c RANSA
+ ADD_LIBRARY(libsift STATIC ${LIBSIFT_SOURCES})
+ 
+ set(all_libs libsift ${JPEG_LIBRARIES} ${TIFF_LIBRARIES}
+-    ${PNG_LIBRARIES} ${ZLIB_LIBRARIES} ${PANO13_LIBRARIES} ${LIBXML2_LIBRARIES}) 
++    ${PNG_LIBRARIES} ${ZLIB_LIBRARIES} ${PANO13_LIBRARIES} ${LIBXML2_LIBRARIES} -lm) 
+ 
+ add_executable(generatekeys GenerateKeys.c)
+ TARGET_LINK_LIBRARIES(generatekeys ${all_libs})
