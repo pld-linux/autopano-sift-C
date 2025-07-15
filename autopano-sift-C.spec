@@ -2,7 +2,7 @@ Summary:	SIFT Feature Detection implementation
 Summary(pl.UTF-8):	Implementacja algorytmu SIFT do wykrywania cech obrazu
 Name:		autopano-sift-C
 Version:	2.5.1
-Release:	2
+Release:	3
 License:	GPL v2, but SIFT algorithm may require license in some countries
 Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.gz
